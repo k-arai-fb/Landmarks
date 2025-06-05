@@ -1,18 +1,18 @@
 //
-//  CircleImage.swift
+//  LandmarkDetail.swift
 //  Landmarks
 //
-//  Created by k.arai on 2025/06/04.
+//  Created by k.arai on 2025/06/05.
 //
 
 import SwiftUI
 
-struct CircleImage: View {
+struct LandmarkDetail: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    CircleImage()
+    LandmarkDetail()
 }
