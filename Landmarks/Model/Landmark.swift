@@ -9,13 +9,16 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-//struct to read from landmark Jason Data
-struct Landmark: Hashable, Codable {
+struct Landmark: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var park: String
-    var State: String
+    var state: String
     var description: String
+    var category: String
+    var city: String
+    var isFeatured: Bool
+    var isFavorite: Bool
     
     private var imageName: String
     var image: Image {
@@ -23,11 +26,10 @@ struct Landmark: Hashable, Codable {
     }
     
     private var coordinates: Coordinates
-    var locationCoordinates: CLLocationCoordinate2D {
+    var locationCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(
             latitude: coordinates.latitude,
-            longitude: coordinates.longitude
-        )
+            longitude: coordinates.longitude)
     }
     
     struct Coordinates: Hashable, Codable {
