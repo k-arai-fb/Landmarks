@@ -27,6 +27,7 @@ struct Badge: View {
                     .position(x: geometry.size.width / 2.0, y: (3.0 / 4.0) * geometry.size.height)
             }
         }
+        //親ビューに収まるように アスペクト比を保ったまま表示
         .scaledToFit()
     }
 }

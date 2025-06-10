@@ -16,13 +16,15 @@
 import CoreGraphics
 
 struct HexagonParameters {
+    //六角形の一辺に対応
     struct Segment {
         let line: CGPoint
         let curve: CGPoint
         let control: CGPoint
     }
     
-    //インスタンスを生成しなくても使える HexagonParameters.adjustment()
+    //struct インスタンスを生成しなくても使える
+    //adjustment 上下の辺が丸みを帯びた滑らかな曲線になるように調整
     static let adjustment: CGFloat = 0.085
     
     
@@ -57,6 +59,7 @@ struct HexagonParameters {
             curve:   CGPoint(x: 0.95, y: 0.20 + adjustment),
             control: CGPoint(x: 1.00, y: 0.25 + adjustment)
         )
+         
     ]
 }
 
