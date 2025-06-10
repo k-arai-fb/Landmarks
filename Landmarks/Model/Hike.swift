@@ -14,12 +14,13 @@ struct Hike: Codable, Hashable, Identifiable {
     var difficulty: Int
     var observations: [Observation]
     
-    
+    //距離を文字列に変換するためのクラス MeasurementFormatterより軽量
     static var formatter = LengthFormatter()
     
     
     var distanceText: String {
         Hike.formatter
+            //distanceをキロメートルの文字列に変換
             .string(fromValue: distance, unit: .kilometer)
     }
     
@@ -33,3 +34,4 @@ struct Hike: Codable, Hashable, Identifiable {
         var heartRate: Range<Double>
     }
 }
+
