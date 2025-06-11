@@ -11,9 +11,9 @@ struct BadgeSymbol: View {
     static let symbolColor = Color(red: 79.0 / 255, green: 79.0 / 255, blue: 191.0 / 255)
 
     var body: some View {
-        GeometryReader { geometry in
+        //GeometryReader { geometry in
             Path { path in
-                let width = min(geometry.size.width, geometry.size.height)
+                let width = UIScreen.main.bounds.size.width
                 let height = width * 0.75
                 let spacing = width * 0.030
                 let middle = width * 0.5
@@ -39,7 +39,8 @@ struct BadgeSymbol: View {
                 ])
             }
             .fill(Self.symbolColor)
-        }
+            .background(Color.yellow)
+      //  }
     }
 }
 

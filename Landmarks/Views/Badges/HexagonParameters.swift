@@ -18,6 +18,7 @@ import CoreGraphics
 struct HexagonParameters {
     //六角形の一辺に対応
     struct Segment {
+        //CGPoint座標使う
         let line: CGPoint
         let curve: CGPoint
         let control: CGPoint

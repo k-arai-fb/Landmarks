@@ -10,7 +10,7 @@ import SwiftUI
 extension Animation {
     static func ripple(index: Int) -> Animation {
         //バネのように弾むアニメーション
-        Animation.spring(dampingFraction: 0.5)
+        Animation.spring(dampingFraction: 0.8)
             .speed(2)
             .delay(0.03 * Double(index))
     }
