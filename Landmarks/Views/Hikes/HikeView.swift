@@ -7,9 +7,11 @@ A view displaying information about a hike, including an elevation graph.
 
 import SwiftUI
 
+//SwiftUI における ビューの出現／消失に使う「見た目の変化」＝アニメーションのルール を定義する型
 extension AnyTransition {
     static var moveAndFade: AnyTransition {
         .asymmetric(
+            //
             insertion: .move(edge: .trailing).combined(with: .opacity),
             removal: .scale.combined(with: .opacity)
         )
@@ -17,7 +19,7 @@ extension AnyTransition {
 }
 struct HikeView: View {
     var hike: Hike
-    @State private var showDetail = true
+    @State private var showDetail = false
 
     var body: some View {
         VStack {
@@ -34,6 +36,7 @@ struct HikeView: View {
                 Spacer()
 
                 Button {
+                    //状態の変更にアニメーションをつけるためのトリガー
                     withAnimation {
                         showDetail.toggle()
                     }
@@ -49,6 +52,8 @@ struct HikeView: View {
 
             if showDetail {
                 HikeDetail(hike: hike)
+                    //表示/非表示の際にトランジション効果が適用される
+                    .transition(.moveAndFade)
             }
         }
     }

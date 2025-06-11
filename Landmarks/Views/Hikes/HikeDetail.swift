@@ -22,12 +22,16 @@ struct HikeDetail: View {
         VStack {
             HikeGraph(hike: hike, path: dataToShow)
                 .frame(height: 200)
+                .transition(.moveAndFade)
 
             HStack(spacing: 25) {
                 ForEach(buttons, id: \.0) { value in
                     Button {
-                        //value は ("Elevation",\Hike.Observation.elevation) 
-                        dataToShow = value.1
+                        //value は ("Elevation",\Hike.Observation.elevation)
+                        withAnimation {
+                            dataToShow = value.1
+                        }
+                        
                     } label: {
                         Text(value.0)
                             .font(.system(size: 15))
