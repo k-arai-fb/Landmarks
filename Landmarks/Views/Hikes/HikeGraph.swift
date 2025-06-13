@@ -23,7 +23,12 @@ struct HikeGraph: View {
     //path = \Hike.Observation.elevation
     //                ポインタ           参照する値の型
     var path: KeyPath<Hike.Observation, Range<Double>>
-
+    // MARK: 追記コメント
+    // KeyPathはプロパティ参照を示す型。
+    // 1つ目のGenericsはポインタというか、参照したいプロパティを持っている型。2つ目は参照するプロパティの型。
+    // 1つの型の中で複数のプロパティを使ったりする場合は使えるかも。
+    // 今回は、HikeGraph1つで3種のプロパティに対応するために、いろんなRange<Double>が受け取れるようにしている。
+    
     var color: Color {
         switch path {
         case \.elevation:
@@ -69,11 +74,11 @@ struct HikeGraph: View {
 //rangesは配列やリストなど「繰り返し可能なコレクション型」である
 //<C: Collection> というのは Swift における「ジェネリクス（Generics）＋ プロトコル制約」の組み合わせです。これは：「引数として、どんなコレクションでも使えるように汎用化する書き方」配列以外でも使える
 func rangeOfRanges<C: Collection>(_ ranges: C) -> Range<Double>
-    //ranges の各要素は Range<Double> 型でなければならない
-    where C.Element == Range<Double> {
+// ranges の各要素は Range<Double> 型でなければならない
+where C.Element == Range<Double> {
     guard !ranges.isEmpty else { return 0..<0 }
-    let low = ranges.lazy.map { $0.lowerBound }.min()!
-    let high = ranges.lazy.map { $0.upperBound }.max()!
+    let low = ranges.lazy.map(\.lowerBound).min()!
+    let high = ranges.lazy.map(\.upperBound).max()!
     return low..<high
 }
 
