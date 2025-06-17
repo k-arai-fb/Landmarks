@@ -16,6 +16,7 @@ struct LandmarkDetail: View {
     }
     
     var body: some View {
+        //参照型に対して
         @Bindable var modelData = modelData
         
         ScrollView {

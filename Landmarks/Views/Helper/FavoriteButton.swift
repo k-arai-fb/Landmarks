@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FavoriteButton: View {
+    //別の場所での変更も反映できるように　値型に対して
     @Binding var isSet: Bool
     var body: some View {
         Button {
