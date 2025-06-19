@@ -16,15 +16,10 @@ struct CategoryHome: View {
     var body: some View {
         NavigationSplitView {
             List {
-                modelData.features[0].image
-                    .resizable()
-                    .scaledToFill()
-                // ビューのサイズを指定する。切り取られない。
-                    .frame(height: 200)
-                // frameで指定した大きさに切り取る。
-                    .clipped()
-                // セルの左右の余白を制御
-                    .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                // 画像テキストのカードに変換したものを渡す
+                // pages:Array<FeatureCard>([FutureCard])
+                PageView(pages: modelData.features.map { FeatureCard(landmark: $0) })
+                    .listRowInsets(EdgeInsets())
                 
                 // 辞書型のキーを.sortedでアルファベット順に並べ替え
                 // \.self 各キー自体をIDとして使っている

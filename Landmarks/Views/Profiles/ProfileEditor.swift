@@ -39,10 +39,12 @@ struct ProfileEditor: View {
                     Text(season.rawValue).tag(season)
                 }
             }
+            .pickerStyle(.automatic)
             // 日付のみ表示・選択できる（時刻は表示されない）
             DatePicker(selection: $profile.goalDate, in: dateRange, displayedComponents: .date) {
                 Text("Goal Date")
             }
+            .datePickerStyle(.wheel)
         }
     }
 }

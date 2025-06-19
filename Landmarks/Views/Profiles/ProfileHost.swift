@@ -23,7 +23,7 @@ struct ProfileHost: View {
                 // 編集キャンセル処理
                 if editMode?.wrappedValue == .active {
                     // role: .cancel を指定すると、iOSのアクセシビリティや UI 上で「キャンセル操作」として扱われる　意味づけ　アクセシビリティ対応
-                    Button("Cancel", role: .cancel) {
+                    Button("Cancel", role: .destructive) {
                         draftProfile = modelData.profile
                         // 編集モードを「終了」に設定
                         // .animation() を使うことで、編集モードの切り替えにアニメーションを付けて切り替えられる
