@@ -10,6 +10,21 @@ import Foundation
 @Observable
 class ModelData {
     var landmarks: [Landmark] = load("landmarkData.json")
+    var hikes: [Hike] = load("hikeData.json")
+    var profile = Profile.default
+    var features: [Landmark] {
+        landmarks.filter { $0.isFeatured }
+    }
+    
+    var categories: [String: [Landmark]] {
+        //配列をある条件(キー)でグループ化し、辞書にする
+        Dictionary(
+            grouping: landmarks,
+            // rawValueはenumに割り当てられた元の値
+            by: { $0.category.rawValue }
+        )
+    }
+    
 }
 
 

@@ -21,6 +21,7 @@ struct LandmarkList: View {
         NavigationSplitView {
             //id: \.idがあることで各要素を一意に識別 IdentifiableがあればOK
             List {
+                // $はBinding
                 Toggle(isOn: $showFavoritesOnly) {
                     Text("Favorites only")
                 }
